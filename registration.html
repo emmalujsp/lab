@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>Register</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+.jumbotron{
+background-color:white;
+position:absolute;
+ padding: 14px 20px;
+top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+width:50%;
+box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6); 
+}
+</style>
+      <script type="text/javascript">
+         function checkalphabet(e) {
+             var x = e.which || e.keycode;
+             if ((x >= 65 && x <= 122 || x==32))
+                 return true;
+             else
+                 return false;
+         }
+		 function phonenumber(e)
+		 {
+			var n = e.length; 
+			var x = e.which || e.keycode;
+			if((x>=48 && x<=57))
+				return true;
+			else
+				return false;
+			return true;
+		}
+		function pswstrength(inputtxt) 
+		{ 
+		var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+		if(inputtxt.value.match(decimal)) 
+		{ 
+		alert('Correct')
+		return true;
+		}
+		else
+		{ 
+		alert('Wrong...!')
+		return false;
+		}
+		} 
+		function uppercase(str)
+		{
+		   regexp = /^[A-Z]/;
+		   if (regexp.test(str))
+			{
+			  alert("first character is uppercase");
+			} 
+			else
+			{
+			  alert("first character is not uppercase");
+			}
+		}
+}
+      </script>
+</head>
+<body style="background-color:#ecf0f1;">
+ <script>
+        function Setcookie()
+        {
+            if(document.getElementById("rem_check").checked==true)
+            {
+                document.cookie="username="+document.getElementById("username").value+";expires=Thu, 19 Nov 2020 23:50:00 UTC";;
+                document.cookie="password="+document.getElementById("password").value;
+                window.location.href("registration.html");
+            }
+        }
+        window.onload=function()
+        {
+            if(document.cookie.length!=0)
+            {
+                var Allcookies,Temp;
+                Allcookies=document.cookie.split(";");   
+                for(var i=0;i<Allcookies.length;i++)
+                {
+                    Temp=Allcookies[i].split("=");
+                    if(Temp[0]=="username")
+                    {
+                        document.getElementById("username").value=Temp[1];
+                    }
+                    if(Temp[0]==" password")
+                    {
+                        document.getElementById("password").value=Temp[1];
+                    }
+                }
+            }
+        }
+    </script>
+	<center>
+	<h1>Gateways 2020</h1>
+            <h3>TECHOVID</h3>
+	</center>
+<div class="jumbotron">
+	<div class="container">
+		<form class="form-horizontal" onsubmit="display()">
+			<p>New User</p>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Name: </label>
+				<div class="col-sm-10">
+					<input type="Text" class="form-control" name="name"size="50%" placeholder="Name" onkeypress='return checkalphabet(event)'>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Email: </label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" size="50%" name="email" placeholder="email address">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Branch: </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" size="50%" name="branch" placeholder="Branch">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">University: </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" size="50%" name="university" placeholder="college/university">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Address: </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="address" size="50%" placeholder="Address">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Age: </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" size="50%" name="date" placeholder=" Age" onkeypress='return checkalphabet(event)'>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Phone : </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" size="50%" name="phone" placeholder=" Phone" onkeypress='return phonenumber(event)'>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">username: </label>
+				<div class="col-sm-10">
+					<input type="Text" class="form-control" name="uname"size="50%" placeholder="username" onmouseleave="return uppercase(uname)">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Password: </label>
+				<div class="col-sm-10">
+					<input type="Password" class="form-control" size="50%" name="password" placeholder="Password" onfocus="return pswstrength(psw)">
+				</div>
+			</div>
+			<center>
+				<input type="submit" class="btn btn-danger">
+			</center>
+		</form>
+	</div>
+</div>
+</body>
+</html>

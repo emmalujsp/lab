@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<christ>
+<cs mid="M1">
+<stuname>Emmalu</stuname>
+<stubranch>Computer</stubranch>
+<stucollege>christ</stucollege>
+<stuemail>emmalujsp@gmail.com</stuemail>
+</cs>
+<cs mid="M2">
+<stuname>Joseph</stuname>
+<stubranch>Arts</stubranch>
+<stucollege>Christujayanthi</stucollege>
+<stuemail>joseph@gmail.com</stuemail>
+</cs>
+<cs mid="M3">
+<stuname>George</stuname>
+<stubranch>Humanities</stubranch>
+<stucollege>Loyola</stucollege>
+<stuemail>Grg@gmail.com</stuemail>
+</cs>
+</christ>

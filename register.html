@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+   <title>Register</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+.jumbotron{
+background-color:white;
+position:absolute;
+ padding: 14px 20px;
+top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+width:50%;
+box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6); 
+}
+</style>
+    <body>
+        <center>
+		<h1>Gateways 2020 TECHOVID</h1>
+	</center>
+<div class="jumbotron">
+ <script>
+        function Setcookie()
+        {
+            if(document.getElementById("rem_check").checked==true)
+            {
+                document.cookie="username="+document.getElementById("username").value+";expires=Thu, 19 Nov 2020 23:50:00 UTC";;
+                document.cookie="password="+document.getElementById("password").value;
+                window.location.href("registration.html");
+            }
+        }
+        window.onload=function()
+        {
+            if(document.cookie.length!=0)
+            {
+                var Allcookies,Temp;
+                Allcookies=document.cookie.split(";");   
+                for(var i=0;i<Allcookies.length;i++)
+                {
+                    Temp=Allcookies[i].split("=");
+                    if(Temp[0]=="username")
+                    {
+                        document.getElementById("username").value=Temp[1];
+                    }
+                    if(Temp[0]==" password")
+                    {
+                        document.getElementById("password").value=Temp[1];
+                    }
+                }
+            }
+        }
+    </script>
+	<div class="container">
+		<form class="form-horizontal" onsubmit=" return validate()" action="Welcome.html"">
+			<p>New User</p>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Name: </label>
+				<div class="col-sm-10">
+					<input type="Text" id="name" class="form-control" size="50%" placeholder="Name" onkeypress="return test(event)">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Email: </label>
+				<div class="col-sm-10">
+					<input id="email" type="email" class="form-control" size="50%" name="email"  placeholder="email address">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Branch: </label>
+				<div class="col-sm-10">
+					<input id="branch" type="text" class="form-control" size="50%" name="branch" placeholder="Branch">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">University: </label>
+				<div class="col-sm-10">
+					<input id="colName" type="text" class="form-control" size="50%" name="university" placeholder="college/university">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">State: </label>
+				<div class="col-sm-10">
+					<input id="state" type="text" class="form-control" size="50%" name="state" placeholder="state">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Address: </label>
+				<div class="col-sm-10">
+					<input id="address" type="text" class="form-control" name="address" size="50%" placeholder="Address">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Age: </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" size="50%" name="date" placeholder=" Age">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Phone : </label>
+				<div class="col-sm-10">
+					<input id="phno" type="text" class="form-control" size="50%" name="phone" placeholder="phone number">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">username: </label>
+				<div class="col-sm-10">
+					<input id="uname" type="Text" class="form-control" name="uname"size="50%" placeholder="username">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Password: </label>
+				<div id="pwd" class="col-sm-10">
+					<input type="Password" class="form-control" size="50%" name="password" placeholder="Password">
+				</div>
+			</div>
+			<center>
+				<input type="submit" class="btn btn-danger">
+			</center>
+		</form>
+	</div>
+</div>
+        <script>
+            function test(event)
+            {
+                let code=event.which;
+                if(code>47 && code<58)
+                return false;
+                else
+                return true;
+            }
+            function capitalize(textboxid, str) 
+            {
+                // string with alteast one character
+                if (str && str.length >= 1)
+                {       
+                    var firstChar = str.charAt(0);
+                    var remainingStr = str.slice(1);
+                    str = firstChar.toUpperCase() + remainingStr;
+                }
+                document.getElementById(textboxid).value = str;
+            }
+            function validate()
+            {
+                var mailformat = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+                var paswd=  /^(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{7,15}$/;
+                let name=document.getElementById("name");
+                let email=document.getElementById("email");
+                let branch=document.getElementById("branch");
+                let colName=document.getElementById("colName");
+                let state=document.getElementById("state");
+                let address=document.getElementById("address");
+                let phno=document.getElementById("phno");
+                let uname=document.getElementById("uname");
+                let pwd=document.getElementById("pwd");
+                if(name.value.trim()=="")
+               {
+                   alert("First name is required");
+                   return(false);
+               } 
+               else if(email.value.trim()=="")
+               {
+                   alert("Email is required");
+                   return(false);
+               }
+               else if(!email.value.match(mailformat))
+               {
+                   alert("Invalid Email!");
+                   return(false);
+               }
+               else if(branch.value.trim()=="")
+               {
+                   alert("Branch is required");
+                   return(false);
+               }
+               else if(colName.value.trim()=="")
+               {
+                   alert("Collage/University Name is required");
+                   return(false);
+               }
+               else if(state.value.trim()=="")
+               {
+                   alert("State is required");
+                   return(false);
+               }
+               else if(address.value.trim()=="")
+               {
+                   alert("Address is required");
+                   return(false);
+               }
+               else if(phno.value.trim()=="")
+               {
+                   alert("Phone number is required");
+                   return(false);
+               }
+               else if(uname.value.trim()=="")
+               {
+                   alert("Username is required");
+                   return(false);
+               }
+               else if(pwd.value.trim()=="")
+               {
+                    alert("Password is required");
+                   return(false);
+               }
+               else if(!pwd.value.match(paswd))
+               {
+                   alert("Invalid password!");
+                   return(false);
+               }
+               else
+               {
+                   return true;
+               }
+
+            }
+        </script>
+    </body>
+</html>
